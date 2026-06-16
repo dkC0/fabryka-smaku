@@ -6,12 +6,15 @@ export default function Hero() {
 
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
+    if (prefersReduced) {
+      headingRef.current?.classList.add('hero__heading--visible');
+      return;
+    }
 
     const heading = headingRef.current;
     if (!heading) return;
 
-    // Split heading into letter spans for stagger animation
+    // Pre-set stagger delays on each letter
     const words = heading.querySelectorAll('.hero__word');
     words.forEach((word, wi) => {
       const letters = word.querySelectorAll('.hero__letter');
@@ -20,12 +23,8 @@ export default function Hero() {
       });
     });
 
-    // Trigger on next frame (after loader delay handled in App.jsx)
-    const raf = requestAnimationFrame(() => {
-      heading.classList.add('hero__heading--visible');
-    });
-
-    return () => cancelAnimationFrame(raf);
+    // Animation fires when App adds .hero__heading--visible after loader completes
+    // No self-trigger here — App.jsx owns the timing
   }, []);
 
   const handleMenuClick = (e) => {
