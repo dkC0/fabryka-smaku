@@ -1,0 +1,118 @@
+.craft {
+  border-top: 1px solid var(--color-forge-line);
+}
+
+.craft__header {
+  max-width: 600px;
+  margin-bottom: var(--space-12);
+}
+
+.craft__heading {
+  font-size: var(--text-3xl);
+  color: var(--color-cream);
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+}
+
+.craft__heading em {
+  font-style: italic;
+  color: var(--color-copper);
+}
+
+.craft__sub {
+  font-size: var(--text-md);
+  color: var(--color-cream-muted);
+  line-height: 1.8;
+}
+
+/* ─── Pillars ─────────────────────────────────────────────── */
+.craft__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 32px);
+}
+
+.craft__pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--color-forge-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-mid) ease,
+    transform var(--dur-mid) var(--ease-out-expo);
+}
+
+.craft__pillar:hover {
+  border-color: var(--color-copper-line);
+  transform: translateY(-4px);
+}
+
+/* Image */
+.craft__pillar-img-wrap {
+  position: relative;
+  aspect-ratio: 3/2;
+  overflow: hidden;
+}
+
+.craft__pillar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease-out-expo);
+}
+
+.craft__pillar:hover .craft__pillar-img {
+  transform: scale(1.05);
+}
+
+.craft__pillar-num {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(196, 123, 69, 0.9);
+  line-height: 1;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  user-select: none;
+}
+
+/* Body */
+.craft__pillar-body {
+  padding: var(--space-5);
+  background: var(--color-forge-lift);
+  flex: 1;
+}
+
+.craft__pillar-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--color-cream);
+  margin-bottom: var(--space-3);
+  line-height: 1.3;
+}
+
+.craft__pillar-text {
+  font-size: var(--text-sm);
+  color: var(--color-cream-muted);
+  line-height: 1.7;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .craft__pillars {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .craft__pillars {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: unset;
+  }
+}

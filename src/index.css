@@ -1,0 +1,229 @@
+/* ============================================================
+   FABRYKA SMAKU — Global Styles
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+@import './styles/tokens.css';
+@import './styles/animations.css';
+
+/* ─── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text-dark);
+  background-color: var(--color-forge);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ─── Typography utilities ───────────────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+
+.text-copper  { color: var(--color-copper); }
+.text-cream   { color: var(--color-cream); }
+.text-muted   { color: var(--color-cream-muted); }
+
+.uppercase    { text-transform: uppercase; }
+.tracking-wide { letter-spacing: 0.12em; }
+.tracking-wider { letter-spacing: 0.18em; }
+
+/* ─── Layout utilities ───────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section {
+  padding-block: var(--section-pad-y);
+  position: relative;
+}
+
+.section--dark {
+  background-color: var(--color-forge);
+}
+
+.section--lift {
+  background-color: var(--color-forge-lift);
+}
+
+.section--cream {
+  background-color: var(--color-cream-ultra);
+  color: var(--color-text-light);
+}
+
+/* ─── Copper rule / dividers ─────────────────────────────── */
+.copper-rule {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--color-copper);
+  margin-bottom: var(--space-4);
+}
+
+.copper-rule--center {
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+}
+
+/* ─── Section label / eyebrow ─────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-copper);
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+/* ─── Heading defaults ───────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+/* ─── Buttons ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  transition:
+    transform var(--dur-fast) var(--ease-out-quart),
+    box-shadow var(--dur-fast) var(--ease-out-quart),
+    background-color var(--dur-mid) ease,
+    color var(--dur-mid) ease,
+    border-color var(--dur-mid) ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--copper {
+  background: var(--color-copper);
+  color: var(--color-forge);
+}
+
+.btn--copper:hover {
+  background: var(--color-copper-deep);
+  box-shadow: 0 8px 32px rgba(196, 123, 69, 0.35);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-cream);
+  border: 1.5px solid rgba(242, 235, 217, 0.35);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-copper);
+  color: var(--color-copper);
+}
+
+.btn--outline-copper {
+  background: transparent;
+  color: var(--color-copper);
+  border: 1.5px solid var(--color-copper);
+}
+
+.btn--outline-copper:hover {
+  background: var(--color-copper);
+  color: var(--color-forge);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Skip nav ────────────────────────────────────────────── */
+.skip-nav {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-nav:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--color-copper);
+  color: var(--color-forge);
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-forge-lift); }
+::-webkit-scrollbar-thumb { background: var(--color-forge-line); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-copper); }
+
+/* ─── Selection ───────────────────────────────────────────── */
+::selection {
+  background: var(--color-copper);
+  color: var(--color-forge);
+}
