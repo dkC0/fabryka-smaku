@@ -74,7 +74,7 @@ export default function Menu() {
       if (!el) return;
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActiveId(cat.id); },
-        { rootMargin: '-25% 0px -65% 0px' }
+        { rootMargin: '-10% 0px -50% 0px' }
       );
       obs.observe(el);
       observers.push(obs);
@@ -88,7 +88,11 @@ export default function Menu() {
     const nav = navRef.current;
     if (!nav) return;
     const btn = nav.querySelector('.menu-nav__btn--active');
-    btn?.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    if (!btn) return;
+    const navRect = nav.getBoundingClientRect();
+    const btnRect = btn.getBoundingClientRect();
+    const targetLeft = nav.scrollLeft + btnRect.left - navRect.left - (navRect.width - btnRect.width) / 2;
+    nav.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
   }, [activeId]);
 
   const scrollToCategory = (id) => {
