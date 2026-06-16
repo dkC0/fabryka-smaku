@@ -12,6 +12,7 @@
 /* ─── Visual / photo ──────────────────────────────────────── */
 .about__visual {
   position: relative;
+  padding-bottom: 24px; /* clearance for the badge that extends -16px below */
 }
 
 .about__img-wrap {

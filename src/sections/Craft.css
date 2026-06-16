@@ -164,7 +164,7 @@
 
   .craft__visual {
     position: static;
-    max-width: 480px;
+    max-width: 520px;
   }
 
   .craft__img-wrap {
@@ -177,6 +177,14 @@
 }
 
 @media (max-width: 599px) {
+  .craft__visual {
+    max-width: 100%;
+  }
+
+  .craft__img-wrap {
+    aspect-ratio: 4 / 3;
+  }
+
   .craft__item {
     grid-template-columns: 3rem 1fr;
     gap: var(--space-3);

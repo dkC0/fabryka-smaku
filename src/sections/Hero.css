@@ -218,6 +218,21 @@
   }
 }
 
+@media (max-width: 480px) {
+  .hero__body {
+    max-width: 100%;
+  }
+
+  .hero__tagline {
+    font-size: 1.1rem;
+  }
+
+  /* keep hours label but hide scroll indicator on tiny screens */
+  .hero__scroll-indicator {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero__letter {
     opacity: 1;

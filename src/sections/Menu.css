@@ -316,8 +316,16 @@
 
 @media (max-width: 599px) {
   .menu-cat__items { padding-left: 0; }
-  .menu-cat__head { grid-template-columns: 3rem 1fr; gap: var(--space-3); }
-  .menu-cat__num { font-size: 2.25rem; }
+  .menu-cat__head { grid-template-columns: 2.5rem 1fr; gap: var(--space-3); }
+  .menu-cat__num { font-size: 2rem; }
   .menu-cat__items--short { max-width: 100%; }
-  .menu-nav__btn { padding: 14px 14px; font-size: 0.65rem; }
+  .menu-nav__btn { padding: 13px 12px; font-size: 0.65rem; gap: 4px; }
+}
+
+@media (max-width: 374px) {
+  /* Extra-small phones: hide chapter numbers in sticky nav to save space */
+  .menu-nav__num { display: none; }
+  .menu-cat__head { grid-template-columns: 2rem 1fr; }
+  .menu-cat__num { font-size: 1.5rem; }
+  .menu-nav__btn { padding: 13px 9px; }
 }
