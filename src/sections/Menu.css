@@ -67,13 +67,18 @@
   z-index: 20;
   background: var(--color-forge);
   border-bottom: 1px solid var(--color-forge-line);
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
   margin-bottom: var(--space-8);
 }
 
-.menu-nav::-webkit-scrollbar {
+/* overflow lives here, NOT on the sticky parent — overflow-x on a sticky
+   element breaks position:sticky on iOS Safari */
+.menu-nav__scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu-nav__scroll::-webkit-scrollbar {
   display: none;
 }
 

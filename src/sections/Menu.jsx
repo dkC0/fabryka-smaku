@@ -61,7 +61,7 @@ function MenuCategory({ cat }) {
 }
 
 export default function Menu() {
-  const sectionRef = useReveal();
+  const sectionRef = useReveal({ threshold: 0.01 });
   const [activeId, setActiveId] = useState(MENU[0].id);
   const navRef = useRef(null);
   const hasMounted = useRef(false);
@@ -87,12 +87,13 @@ export default function Menu() {
     if (!hasMounted.current) { hasMounted.current = true; return; }
     const nav = navRef.current;
     if (!nav) return;
+    const scrollEl = nav.querySelector('.menu-nav__scroll');
     const btn = nav.querySelector('.menu-nav__btn--active');
-    if (!btn) return;
-    const navRect = nav.getBoundingClientRect();
+    if (!scrollEl || !btn) return;
+    const scrollRect = scrollEl.getBoundingClientRect();
     const btnRect = btn.getBoundingClientRect();
-    const targetLeft = nav.scrollLeft + btnRect.left - navRect.left - (navRect.width - btnRect.width) / 2;
-    nav.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+    const targetLeft = scrollEl.scrollLeft + btnRect.left - scrollRect.left - (scrollRect.width - btnRect.width) / 2;
+    scrollEl.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
   }, [activeId]);
 
   const scrollToCategory = (id) => {
@@ -134,19 +135,21 @@ export default function Menu() {
 
       {/* Sticky category nav */}
       <nav className="menu-nav" ref={navRef} aria-label="Kategorie menu">
-        <div className="container">
-          <div className="menu-nav__list" role="list">
-            {MENU.map(cat => (
-              <button
-                key={cat.id}
-                className={`menu-nav__btn${activeId === cat.id ? ' menu-nav__btn--active' : ''}`}
-                onClick={() => scrollToCategory(cat.id)}
-                aria-current={activeId === cat.id ? 'true' : undefined}
-              >
-                <span className="menu-nav__num" aria-hidden="true">{cat.chapter}</span>
-                <span className="menu-nav__label">{cat.title}</span>
-              </button>
-            ))}
+        <div className="menu-nav__scroll">
+          <div className="container">
+            <div className="menu-nav__list" role="list">
+              {MENU.map(cat => (
+                <button
+                  key={cat.id}
+                  className={`menu-nav__btn${activeId === cat.id ? ' menu-nav__btn--active' : ''}`}
+                  onClick={() => scrollToCategory(cat.id)}
+                  aria-current={activeId === cat.id ? 'true' : undefined}
+                >
+                  <span className="menu-nav__num" aria-hidden="true">{cat.chapter}</span>
+                  <span className="menu-nav__label">{cat.title}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </nav>
