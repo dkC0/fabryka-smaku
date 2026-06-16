@@ -13,8 +13,8 @@ export default function About() {
           <div className="about__visual reveal-left">
             <div className="about__img-wrap">
               <img
-                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&auto=format&fit=crop"
-                alt="Kuchnia Fabryki Smaku — przygotowywanie dań"
+                src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=800&q=85&auto=format&fit=crop"
+                alt="Kuchnia Fabryki Smaku — przygotowywanie dań z pasją"
                 className="about__img"
                 loading="lazy"
                 width="600"

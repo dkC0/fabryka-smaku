@@ -5,28 +5,24 @@
 
 :root {
   /* ─── Palette ─────────────────────────────────────────── */
-  /* Dark industrial — warm charcoal, not cold corporate black */
-  --color-forge:        #1A1510;  /* primary background — warm foundry dark */
-  --color-forge-lift:   #231E18;  /* elevated sections */
-  --color-forge-line:   #2E2820;  /* subtle separators */
+  --color-forge:        #1A1510;
+  --color-forge-lift:   #231E18;
+  --color-forge-line:   #2E2820;
 
-  /* Copper — the factory accent. Aged, warm, real */
-  --color-copper:       #C47B45;  /* primary accent */
-  --color-copper-deep:  #A05E2A;  /* hover/pressed state */
-  --color-copper-glow:  rgba(196, 123, 69, 0.12); /* ambient glow */
-  --color-copper-line:  rgba(196, 123, 69, 0.25); /* hairline borders */
+  --color-copper:       #C47B45;
+  --color-copper-deep:  #A05E2A;
+  --color-copper-glow:  rgba(196, 123, 69, 0.12);
+  --color-copper-line:  rgba(196, 123, 69, 0.25);
 
-  /* Light world — cream/parchment for contrast sections */
-  --color-cream:        #F2EBD9;  /* section bg + body text on dark */
-  --color-cream-muted:  #C4B99A;  /* muted labels/meta on dark */
-  --color-cream-ultra:  #FBF7F0;  /* lightest — highlight bg */
+  --color-cream:        #F2EBD9;
+  --color-cream-muted:  #C4B99A;
+  --color-cream-ultra:  #FBF7F0;
 
-  /* Semantic */
   --color-ink:          #1A1510;
-  --color-text-dark:    #F2EBD9;  /* body text on dark bg */
-  --color-text-muted:   #9A8E7C;  /* subdued text on dark */
-  --color-text-light:   #2E2820;  /* body text on light bg */
-  --color-text-price:   #C47B45;  /* prices — always copper */
+  --color-text-dark:    #F2EBD9;
+  --color-text-muted:   #9A8E7C;
+  --color-text-light:   #2E2820;
+  --color-text-price:   #C47B45;
 
   /* ─── Typography ──────────────────────────────────────── */
   --font-display: 'Cormorant Garamond', Georgia, serif;
