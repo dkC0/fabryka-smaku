@@ -64,6 +64,7 @@ export default function Menu() {
   const sectionRef = useReveal();
   const [activeId, setActiveId] = useState(MENU[0].id);
   const navRef = useRef(null);
+  const hasMounted = useRef(false);
 
   // Highlight active category on scroll
   useEffect(() => {
@@ -81,8 +82,9 @@ export default function Menu() {
     return () => observers.forEach(o => o.disconnect());
   }, []);
 
-  // Keep active tab visible in sticky nav
+  // Keep active tab visible in sticky nav — skip on first render
   useEffect(() => {
+    if (!hasMounted.current) { hasMounted.current = true; return; }
     const nav = navRef.current;
     if (!nav) return;
     const btn = nav.querySelector('.menu-nav__btn--active');
